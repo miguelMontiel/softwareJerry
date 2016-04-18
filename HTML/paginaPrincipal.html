@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<LINK href = 'https://fonts.googleapis.com/css?family=Roboto:400,100' rel = 'stylesheet' type = 'text/css'>
+		<LINK href = "/home/lubuntu/Desktop/softwareJerry/CSS/cssBasico.css" rel = "stylesheet">
+		<META charset = "UTF-8" />
+
+		<TITLE>P&aacute;gina Principal</TITLE>
+	</HEAD>
+	
+	<BODY>
+		<img src = "/home/lubuntu/Desktop/softwareJerry/Imagenes/logo-placeholder.jpg" class = "logo"/>
+		<H2>Inicia Sesi&oacute;n</H2>
+		<BR>
+		<FORM>
+			<div id = "contenido">
+				<div id = "usuario">
+					<input id = "usuarioInput" type = "text" placeholder = "Usuario" required>
+				</div>
+
+				<div id = "contrasena">
+					<input id = "contrasenaInput" type = "password" placeholder = "Contraseña" required>
+				</div>
+
+				<div id = "finalizar">
+					<input type = "submit" class = "pointer" id = "buttonSubmit" value = "Ingresar">
+				</div>
+
+				<div id = "noCuenta">
+					<label>¿No tienes cuenta? </label>
+					<a href = "/home/lubuntu/Desktop/softwareJerry/HTML/paginaRegistro.html"><label class = "pointer"><b> Registrate</b></label></a>
+				<br>
+				<br>
+					<a href = "/home/lubuntu/Desktop/softwareJerry/HTML/recuperacionContrasena.html"><label class = "pointer"><b>Olvide mi contraseña</b></label></a>
+				</div>
+			</div>
+		</FORM>
+		<STYLE>
+			body
+			{
+				text-align: center;
+			}
+			h2
+			{
+				padding-top: 10%;
+			}
+		</STYLE>
+	</BODY>
+</HTML>

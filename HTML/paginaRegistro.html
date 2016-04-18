@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<HTML>
+	<HEAD>
+		<LINK href = 'https://fonts.googleapis.com/css?family=Roboto:400,100' rel = 'stylesheet' type = 'text/css'>
+		<LINK href = "/home/lubuntu/Desktop/softwareJerry/CSS/cssBasico.css" rel = "stylesheet"> 
+		<META charset = "UTF-8" />
+
+		<TITLE>Crea una cuenta</TITLE>
+	</HEAD>
+	
+	<BODY>
+		<H1>Crea una cuenta</H1>
+		<BR>
+
+		<FORM>
+			<TABLE>
+				<TR>
+					<TD>
+						<label>Nombre(s) </label>
+					</TD>
+					<TD>
+						<label>Apellido(s) </label>
+					</TD>
+				</TR>
+
+				<TR>
+					<TD>
+						<input type = "text" required>
+					</TD>
+					<TD>
+						<input type = "text" required>
+					</TD>
+				</TR>
+
+				<TR>
+					<TD>
+						<label>Correo electronico </label>
+					</TD>
+					<TD>
+						<label>Contraseña </label>
+					</TD>
+				</TR>
+
+				<TR>
+					<TD>
+						<input type = "text" required>
+					</TD>
+					<TD>
+						<input type = "password" required>
+					</TD>
+					<TD>
+						<input type = "password" placeholder = "Re-ingresa tu Contraseña" required>
+					</TD>
+				</TR>
+
+				<TR id = "nacimientoRow">
+					<TD>Dia
+						<select id = "diaNacimiento" required>
+							<option>1</option>
+						</select> 
+					</TD>
+					<TD>Mes
+						<select id = "mesNacimiento" required>
+							<option>Enero</option>
+						</select> 
+					</TD>
+					<TD>Ano
+						<select id = "anoNacimiento" required>
+						<option>1950</option>
+						</select> 
+					</TD>
+				</TR>
+
+				<TR>
+					<TD>
+						
+					</TD>
+					<TD id = "submitTD">
+						<input type = "submit" value = "Registrarse">
+					</TD>
+				</TR>
+			</TABLE>
+
+			<STYLE>
+				h1, #nacimientoRow
+				{
+					text-align: center;
+				}
+				table
+				{
+					padding: 2% 20%;
+				}
+				input[type = "submit"]
+				{
+					margin: auto;
+					display: block;
+				}
+				#submitTD
+				{
+					padding-top: 3%;
+				}
+			</STYLE>
+		</FORM>
+	</BODY>
+</HTML>
