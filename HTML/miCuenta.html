@@ -2,23 +2,81 @@
 <HTML>
 	<HEAD>
 		<LINK href = 'https://fonts.googleapis.com/css?family=Roboto:400,100' rel = 'stylesheet' type = 'text/css'>
-		<LINK href = "/home/lubuntu/Desktop/softwareJerry/CSS/cssBasico.css" rel = "stylesheet">
+		<LINK href = "cssBasico.css" rel = "stylesheet">
 		<META charset = "UTF-8" />
 
-		<TITLE>Mi cuenta</TITLE>
+		<TITLE>Mi Cuenta</TITLE>
 	</HEAD>
 	
 	<BODY>
 		<FORM>
 			<div id = "todo">
 				<div id = "contenido">
+					<TABLE align = "center" id = "partidas">
+						<TR>
+							<TH><input type = "checkbox" class = "pointer"></TH>
+							<TH>ID</TH>
+							<TH>Producto</TH>
+							<TH>Categoria</TH>
+							<TH>Precio</TH>
+						</TR>
 
+						<TR>
+							<TD><input type = "checkbox" class = "pointer"></TD>
+
+						<?php
+
+				          	include 'Conexion.php';
+
+							// Insercion de los valores en la tabla teams.
+
+							$query = mysql_query("SELECT * FROM  Inventario");
+
+							while($row = mysql_fetch_array($query)) 
+							{
+							    $ID_INVENTARIO = $row['ID_INVENTARIO'];
+								$PRODUCTO = $row['PRODUCTO'];
+								$CATEGORIA = $row['CATEGORIA'];
+								$PRECIO = $row['PRECIO'];
+						?>
+
+						          	<td scope="col"><?=$ID_INVENTARIO; ?></td>
+						            <td scope="col"><?=$PRODUCTO; ?></td>
+						            <td scope="col"><?=$CATEGORIA; ?></td>
+						            <td scope="col"><?=$PRECIO; ?></td>
+						<?php
+							}
+						?>
+
+						</TR>
+					</TABLE>
 				</div>
-				<div id = "footer"></div>
 			</div>
+
+			<STYLE>
+				th
+				{
+					background-color: #808080;
+					color: white;
+				}
+				td
+				{
+					border-bottom: 1px solid #ddd;
+				}
+				tr:hover
+				{
+					background-color: #f5f5f5;
+				}
+				th, td, tr
+				{
+					padding: 5px 20px;
+				}
+				table
+				{
+					border-collapse: collapse;
+					background-color: white;
+				}
+			</STYLE>
 		</FORM>
-
-		<SCRIPT src = "/home/lubuntu/Desktop/softwareJerry/JavaScript/jQuery.js"></SCRIPT>
-
 	</BODY>
 </HTML>

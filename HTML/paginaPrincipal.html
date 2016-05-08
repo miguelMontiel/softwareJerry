@@ -2,24 +2,24 @@
 <HTML>
 	<HEAD>
 		<LINK href = 'https://fonts.googleapis.com/css?family=Roboto:400,100' rel = 'stylesheet' type = 'text/css'>
-		<LINK href = "/home/lubuntu/Desktop/softwareJerry/CSS/cssBasico.css" rel = "stylesheet">
+		<LINK href = "CSS/cssBasico.css" rel = "stylesheet">
 		<META charset = "UTF-8" />
 
 		<TITLE>P&aacute;gina Principal</TITLE>
 	</HEAD>
 	
 	<BODY>
-		<img src = "/home/lubuntu/Desktop/softwareJerry/Imagenes/logo-placeholder.jpg" class = "logo"/>
+		<img src = "/home/user-main/www/HTML/logo_placeholder.png" class = "logo"/>
 		<H2>Inicia Sesi&oacute;n</H2>
 		<BR>
 		<FORM>
 			<div id = "contenido">
 				<div id = "usuario">
-					<input id = "usuarioInput" type = "text" placeholder = "Usuario" required>
+					<input id = "usuarioInput" type = "text" placeholder = "Usuario" name = "USERNAME" required>
 				</div>
 
 				<div id = "contrasena">
-					<input id = "contrasenaInput" type = "password" placeholder = "Contraseña" required>
+					<input id = "contrasenaInput" type = "password" placeholder = "Contraseña" name = "PASSWORD" required>
 				</div>
 
 				<div id = "finalizar">
@@ -28,10 +28,10 @@
 
 				<div id = "noCuenta">
 					<label>¿No tienes cuenta? </label>
-					<a href = "/home/lubuntu/Desktop/softwareJerry/HTML/paginaRegistro.html"><label class = "pointer"><b> Registrate</b></label></a>
+					<a href = "/home/user-main/www/HTML/paginaRegistro.html"><label class = "pointer"><b> Registrate</b></label></a>
 				<br>
 				<br>
-					<a href = "/home/lubuntu/Desktop/softwareJerry/HTML/recuperacionContrasena.html"><label class = "pointer"><b>Olvide mi contraseña</b></label></a>
+					<a href = "/home/user-main/www/HTML/recuperacionContrasena.html"><label class = "pointer"><b>Olvide mi contraseña</b></label></a>
 				</div>
 			</div>
 		</FORM>
@@ -45,5 +45,30 @@
 				padding-top: 10%;
 			}
 		</STYLE>
+
+		<?php
+			$mysqli = new mysqli("localhost", "root", "password1020", "softwareJerry");
+
+			if ($mysqli->connect_errno) 
+			{
+			    echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+			}
+
+			else
+			{
+				$USERNAME = $_GET[USERNAME];
+				$PASSWORD = $_GET[PASSWORD];
+
+				$login = "SELECT ID_USUARIOS FROM Usuarios where USERNAME = ' " . $USERNAME . " ' and PASSWORD = ' " . $PASSWORD . " ' ";
+				$login = str_replace("\'","",$login);
+				$result = mysqli_query($mysqli,$login);
+
+				while($row = mysqli_fetch_array($result))
+				{
+					echo $row['id'];
+				}
+			}
+		?>
+
 	</BODY>
 </HTML>

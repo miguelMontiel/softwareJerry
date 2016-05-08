@@ -2,7 +2,7 @@
 <HTML>
 	<HEAD>
 		<LINK href = 'https://fonts.googleapis.com/css?family=Roboto:400,100' rel = 'stylesheet' type = 'text/css'>
-		<LINK href = "/home/lubuntu/Desktop/softwareJerry/CSS/cssBasico.css" rel = "stylesheet"> 
+		<LINK href = "cssBasico.css" rel = "stylesheet">
 		<META charset = "UTF-8" />
 
 		<TITLE>Crea una cuenta</TITLE>
@@ -16,6 +16,9 @@
 			<TABLE>
 				<TR>
 					<TD>
+						<label>Usuario </label>
+					</TD>
+					<TD>
 						<label>Nombre(s) </label>
 					</TD>
 					<TD>
@@ -25,10 +28,13 @@
 
 				<TR>
 					<TD>
-						<input type = "text" required>
+						<input type = "text" name = "USUARIO" required>
 					</TD>
 					<TD>
-						<input type = "text" required>
+						<input type = "text" name = "NOMBRE" required>
+					</TD>
+					<TD>
+						<input type = "text" name = "APELLIDOS" required>
 					</TD>
 				</TR>
 
@@ -43,34 +49,38 @@
 
 				<TR>
 					<TD>
-						<input type = "text" required>
+						<input type = "email" name = "CORREO" required>
 					</TD>
 					<TD>
-						<input type = "password" required>
+						<input type = "password" name = "CONTRASENA" required>
 					</TD>
 					<TD>
 						<input type = "password" placeholder = "Re-ingresa tu Contraseña" required>
 					</TD>
 				</TR>
 
-				<TR id = "nacimientoRow">
-					<TD>Dia
-						<select id = "diaNacimiento" required>
-							<option>1</option>
-						</select> 
+				<TR>
+					<TD>
+						<label>Dia</label>
 					</TD>
-					<TD>Mes
-						<select id = "mesNacimiento" required>
-							<option>Enero</option>
-						</select> 
+					<TD>
+						<label>Mes</label>
 					</TD>
-					<TD>Ano
-						<select id = "anoNacimiento" required>
-						<option>1950</option>
-						</select> 
+					<TD>
+						<label>Ano</label>
 					</TD>
 				</TR>
-
+				<TR>
+					<TD>
+						<input type = "text" name = "DIA" required>
+					</TD>
+					<TD>
+						<input type = "text" name = "MES" required>
+					</TD>
+					<TD>
+						<input type = "text" name = "ANO" required>
+					</TD>
+				</TR>
 				<TR>
 					<TD>
 						
@@ -101,5 +111,20 @@
 				}
 			</STYLE>
 		</FORM>
+
+		<?php
+			include 'Conexion.php';
+
+			$USUARIO = $_POST[USUARIO];		
+			$CONTRASENA = $_POST[CONTRASENA];
+			$NOMBRE = $_POST[NOMBRE];
+			$APELLIDOS = $_POST[APELLIDOS];
+			$CORREO = $_POST[CORREO];
+			$FECHANAC = $_POST[FECHANAC];	
+
+			$sql = "INSERT INTO Usuarios (USUARIO, CONTRASENA, NOMBRE, APELLIDO, CORREO, FECHANAC) VALUES ('$USUARIO', '$CONTRASENA', '$NOMBRE', '$APELLIDOS', '$CORREO', '$FECHANAC')";
+			mysql_query($sql);
+		?>
+
 	</BODY>
 </HTML>
